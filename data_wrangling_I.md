@@ -69,3 +69,15 @@ mlb11_data =
 ``` r
 pulse_data = haven::read_sas("./data/public_pulse_data.sas7bdat")
 ```
+
+## Learning assessment - read in pups data using read.csv
+
+``` r
+pups_data_3 = read.csv(file = "./data/FAS_pups.csv")
+```
+
+## exporting data
+
+``` r
+write_csv(mlb11_data, path = "./data/mlb11_data.csv")
+```
