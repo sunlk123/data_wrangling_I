@@ -5,22 +5,21 @@ Data Import
 ## Load in a dataset
 
 ``` r
-litters_data = read_csv(file = "./data/FAS_litters.csv")
-```
+##specifying column types 
 
-    ## Parsed with column specification:
-    ## cols(
-    ##   Group = col_character(),
-    ##   `Litter Number` = col_character(),
-    ##   `GD0 weight` = col_double(),
-    ##   `GD18 weight` = col_double(),
-    ##   `GD of Birth` = col_double(),
-    ##   `Pups born alive` = col_double(),
-    ##   `Pups dead @ birth` = col_double(),
-    ##   `Pups survive` = col_double()
-    ## )
+litters_data = read_csv(file = "./data/FAS_litters.csv",
+  col_types = cols(
+    Group = col_character(),
+    `Litter Number` = col_character(),
+    `GD0 weight` = col_double(),
+    `GD18 weight` = col_double(),
+    `GD of Birth` = col_integer(),
+    `Pups born alive` = col_integer(),
+    `Pups dead @ birth` = col_integer(),
+    `Pups survive` = col_integer()
+  )
+)
 
-``` r
 litters_data = janitor::clean_names(litters_data)
 ```
 
