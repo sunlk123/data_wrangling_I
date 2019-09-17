@@ -8,6 +8,7 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
+library(readxl)
 ```
 
 ## Load in a dataset
@@ -39,6 +40,25 @@ pups_data = read_csv(file = "./data/FAS_pups.csv")
 pups_data = janitor::clean_names(pups_data)
 
 pups_data_2 = read_csv(file = "/Users/lorrainekwok/Desktop/Fall 2019/Data Science/Session 5/data_wrangling_I/data/FAS_pups.csv")
+```
+
+## Read in an excel file
+
+```{r}
+
+mlb11_data = 
+  read_excel(
+    path = "./data/mlb11.xlsx",
+    range = "A1:D7")
+
+```
+
+## Read in SAS file
+
+```{r}
+
+pulse_data = haven::read_sas("./data/public_pulse_data.sas7bdat")
+
 ```
 
 

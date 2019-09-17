@@ -54,3 +54,18 @@ pups_data_2 = read_csv(file = "/Users/lorrainekwok/Desktop/Fall 2019/Data Scienc
     ##   `PD pivot` = col_double(),
     ##   `PD walk` = col_double()
     ## )
+
+## Read in an excel file
+
+``` r
+mlb11_data = 
+  read_excel(
+    path = "./data/mlb11.xlsx",
+    range = "A1:D7")
+```
+
+## Read in SAS file
+
+``` r
+pulse_data = haven::read_sas("./data/public_pulse_data.sas7bdat")
+```
