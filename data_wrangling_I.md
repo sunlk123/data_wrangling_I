@@ -24,6 +24,8 @@ litters_data = read_csv(file = "./data/FAS_litters.csv")
 litters_data = janitor::clean_names(litters_data)
 ```
 
+## Load in pups data
+
 ``` r
 pups_data = read_csv(file = "./data/FAS_pups.csv")
 ```
@@ -40,6 +42,7 @@ pups_data = read_csv(file = "./data/FAS_pups.csv")
 
 ``` r
 pups_data = janitor::clean_names(pups_data)
+
 pups_data_2 = read_csv(file = "/Users/lorrainekwok/Desktop/Fall 2019/Data Science/Session 5/data_wrangling_I/data/FAS_pups.csv")
 ```
 
