@@ -24,6 +24,10 @@ pups_data = janitor::clean_names(pups_data)
 
 Now we are using the select function to select a subset of columns that we're interested in. First, we have to specify the dataframe followed by the column names. R generates the output in the order of columns we select. 
 
+Selecting does not do anything to the dataframe unless you create a new variable that uses the select function. 
+
+gd0_weight:pups_born_alive keeps all the columns starting with gd0_weight up to pups_born_alive, and gets rid of everything else 
+
 ```{r}
 select(litters_data, group, litter_number)
 
@@ -36,5 +40,11 @@ select(litters_data, litter_number, group, gd0_weight)
 select(litters_data, litter_number, group, everything())
 
 select(litters_data, -group)
+
+select(litters_data, litter_number, gd0_weight:pups_born_alive)
+
+select(litters_data, GROUP = group, litter_number)
+
+rename(litters_data, GROUP = group)
 ```
 
