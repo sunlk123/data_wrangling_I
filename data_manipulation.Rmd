@@ -11,4 +11,11 @@ library(tidyverse)
 library(readxl)
 ```
 
+## Import datasets
+
+```{r}
+litters_data = read.csv("./data/FAS_litters.csv")
+
+pups_data = read_csv("./data/FAS_pups.csv")
+```
 
