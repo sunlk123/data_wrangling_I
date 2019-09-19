@@ -77,3 +77,32 @@ filter(litters_data, is.na(gd0_weight))
 drop_na(litters_data)
 ```
 
+## Mutate
+
+Used to edit variables in the dataset
+
+```{r}
+# create wt_gain variable to see how much weight is gained over those 18 days
+mutate(
+  litters_data, 
+  wt_gain = gd18_weight - gd0_weight,
+  group = str_to_lower(group),
+  group = str_to_upper(group)
+)
+
+# str_to_lower makes the variable lowercase
+```
+
+## Arrange
+
+```{r}
+# puts dataset in order of pup_born_alive 
+arrange(litters_data, pups_born_alive)
+
+# arrange in descending order
+arrange(litters_data, desc(pups_born_alive))
+
+# arranges data first by pups_born_alive and then within gd0_weight 
+arrange(litters_data, pups_born_alive, gd0_weight)
+```
+
