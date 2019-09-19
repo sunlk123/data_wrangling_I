@@ -1597,3 +1597,12 @@ litters_data =
     group = str_to_lower(group)) %>% 
   drop_na(wt_gain)
 ```
+
+``` r
+litters_data = 
+  read.csv("./data/FAS_litters.csv") %>% 
+  janitor::clean_names(dat = .) %>% 
+  select(.data = ., -pups_survive)
+```
+
+The . refers back to what was created in the last operaiton
