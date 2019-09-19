@@ -48,3 +48,32 @@ select(litters_data, GROUP = group, litter_number)
 rename(litters_data, GROUP = group)
 ```
 
+## Filter
+
+The == asks whether a variable is a certain value (it's a logical question).
+
+```{r}
+filter(litters_data, group == "Mod8")
+
+filter(litters_data, gd_of_birth == 20)
+
+filter(litters_data, gd_of_birth < 20)
+
+filter(litters_data, gd_of_birth >= 20)
+
+filter(litters_data, pups_born_alive < 6)
+
+#filter(litters_data, group == "Con7" | group == "Mod8")
+filter(litters_data, group %in% c("Con7", "Mod8"))
+
+filter(litters_data, pups_born_alive >= 4, pups_born_alive <= 6)
+
+filter(litters_data, gd0_weight + gd18_weight < 70)
+
+# what to do about missing values
+filter(litters_data, is.na(gd0_weight))
+
+# this will only give us complete rows
+drop_na(litters_data)
+```
+
