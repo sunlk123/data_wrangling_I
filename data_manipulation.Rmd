@@ -8,14 +8,33 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 
 library(tidyverse)
-library(readxl)
 ```
 
 ## Import datasets
 
 ```{r}
 litters_data = read.csv("./data/FAS_litters.csv")
+litters_data = janitor::clean_names(litters_data)
 
 pups_data = read_csv("./data/FAS_pups.csv")
+pups_data = janitor::clean_names(pups_data)
+```
+
+## Selecting 
+
+Now we are using the select function to select a subset of columns that we're interested in. First, we have to specify the dataframe followed by the column names. R generates the output in the order of columns we select. 
+
+```{r}
+select(litters_data, group, litter_number)
+
+select(litters_data, group, litter_number, gd0_weight)
+
+select(litters_data,litter_number, gd0_weight, starts_with("pups"))
+
+select(litters_data, litter_number, group, gd0_weight)
+
+select(litters_data, litter_number, group, everything())
+
+select(litters_data, -group)
 ```
 
