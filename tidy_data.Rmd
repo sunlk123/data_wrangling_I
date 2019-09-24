@@ -28,5 +28,17 @@ pulse_data =
 pulse_data
 ```
 
+## separate in litters 
+```{r}
+litters_data = 
+  read_csv("./data/FAS_litters.csv") %>%
+  janitor::clean_names() %>%
+  separate(col = group, into = c("dose", "day_of_tx"), 3)
+#Con7 is actually two variables togther so needed to separate the two
+litters_data
+```
+
+## go untidy...
+
 
 
