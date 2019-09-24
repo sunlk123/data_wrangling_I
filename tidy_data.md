@@ -77,3 +77,56 @@ litters_data
     ## 10 Con   8         #3/5/2/2/95         28.5        NA            20
     ## # … with 39 more rows, and 3 more variables: pups_born_alive <dbl>,
     ## #   pups_dead_birth <dbl>, pups_survive <dbl>
+
+## go untidy…
+
+``` r
+analysis_result = tibble(
+  group = c("treatment", "treatment", "placebo", "placebo"),
+  time = c("pre", "post", "pre", "post"),
+  mean = c(4, 8, 3.5, 4)
+)
+analysis_result
+```
+
+    ## # A tibble: 4 x 3
+    ##   group     time   mean
+    ##   <chr>     <chr> <dbl>
+    ## 1 treatment pre     4  
+    ## 2 treatment post    8  
+    ## 3 placebo   pre     3.5
+    ## 4 placebo   post    4
+
+``` r
+pivot_wider(
+  analysis_result,
+  names_from = time, 
+  values_from = mean
+)
+```
+
+    ## # A tibble: 2 x 3
+    ##   group       pre  post
+    ##   <chr>     <dbl> <dbl>
+    ## 1 treatment   4       8
+    ## 2 placebo     3.5     4
+
+``` r
+pivot_wider
+```
+
+    ## function (data, id_cols = NULL, names_from = name, names_prefix = "", 
+    ##     names_sep = "_", names_repair = "check_unique", values_from = value, 
+    ##     values_fill = NULL, values_fn = NULL) 
+    ## {
+    ##     names_from <- enquo(names_from)
+    ##     values_from <- enquo(values_from)
+    ##     spec <- build_wider_spec(data, names_from = !!names_from, 
+    ##         values_from = !!values_from, names_prefix = names_prefix, 
+    ##         names_sep = names_sep)
+    ##     id_cols <- enquo(id_cols)
+    ##     pivot_wider_spec(data, spec, !!id_cols, names_repair = names_repair, 
+    ##         values_fill = values_fill, values_fn = values_fn)
+    ## }
+    ## <bytecode: 0x7f86f82537d8>
+    ## <environment: namespace:tidyr>
